@@ -1,5 +1,7 @@
 """The App."""
 
+# pylint: disable=no-value-for-parameter
+
 import os
 
 from matplotlib import pyplot as plt
