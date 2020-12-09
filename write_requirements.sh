@@ -1,10 +1,10 @@
-NEW_REQUIREMENTS=$(poetry export -f requirements.txt)
+NEW_REQUIREMENTS=$(poetry export -f requirements.txt --without-hashes)
 
 if [ -f requirements.txt ]; then
     echo "requirements.txt exists!"
 else
     echo "FAILURE: requirements.txt does not exist!"
-    poetry export -f requirements.txt --output requirements.txt
+    poetry export -f requirements.txt --output requirements.txt --without-hashes
     exit 1
 fi
 
@@ -15,6 +15,6 @@ if [ "$NEW_REQUIREMENTS" = "$REQUIREMENTS" ]; then
     exit 0
 else
     echo "FAILURE: requirements.txt is not up to date!"
-    poetry export -f requirements.txt --output requirements.txt
+    poetry export -f requirements.txt --output requirements.txt --without-hashes
     exit 1
 fi
